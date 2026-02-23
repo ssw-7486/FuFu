@@ -501,16 +501,10 @@ export default function LifeCycle() {
           </p>
         </div>
 
-        {/* ── Diagram wrapper ── */}
-        {/*
-          On mobile we allow horizontal scroll so the diagram stays legible.
-          The SVG viewBox is fixed at 900×280; it shrinks proportionally on
-          screens wider than 640px via width="100%". On narrower screens the
-          min-width forces horizontal scroll rather than crushing the illustration.
-        */}
+        {/* ── Diagram wrapper — card with contained scroll on mobile ── */}
         <div
           ref={ref}
-          className="overflow-x-auto -mx-5 px-5 sm:overflow-visible sm:mx-0 sm:px-0"
+          className="rounded-2xl bg-white border border-gray-100 overflow-x-auto"
           role="img"
           aria-label="Lifecycle diagram: soybean plant to tofu byproduct to mochi cat litter to happy cat to back to earth"
         >

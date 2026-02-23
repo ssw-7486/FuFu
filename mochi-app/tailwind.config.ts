@@ -17,6 +17,10 @@ const config: Config = {
         "soft-sage": "#74C69D",
         "warm-sand": "#F4E1C1",
         "deep-forest": "#1B4332",
+        // Complementary accent colors
+        "terra":       "#C8714F",   // terracotta — warm earthy contrast to sage
+        "terra-hover": "#B05E3E",
+        "cream":       "#FAF3E8",   // warm cream — softer alternative to cold surface gray
       },
       fontFamily: {
         sans: ["Inter", "var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],

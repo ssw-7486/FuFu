@@ -247,14 +247,14 @@ function CatScene() {
 export default function Hero() {
   return (
     <section
-      className="flex items-center pt-nav min-h-[80vh] md:min-h-[75vh]"
+      className="flex items-center pt-nav min-h-[70vh] md:min-h-[72vh]"
       aria-label="Hero"
     >
       <div
-        className="w-full mx-auto px-5 py-12 md:py-16"
+        className="w-full mx-auto px-5 py-8 md:py-12"
         style={{ maxWidth: "980px" }}
       >
-        <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-8 lg:gap-16">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 lg:gap-16">
 
           {/* ── Text column ── */}
           <motion.div
@@ -282,19 +282,28 @@ export default function Hero() {
             {/* Subline */}
             <motion.p
               variants={textItem}
-              className="text-body-lg text-text-secondary mb-10 max-w-[380px] leading-relaxed"
+              className="text-body-lg text-text-secondary mb-3 max-w-[380px] leading-relaxed"
             >
               made from tofu. soft on cats. easy on earth.
+            </motion.p>
+
+            {/* Tagline */}
+            <motion.p
+              variants={textItem}
+              className="text-xs text-text-secondary tracking-widest mb-8"
+              style={{ fontWeight: 300 }}
+            >
+              from bean to box.
             </motion.p>
 
             {/* CTAs */}
             <motion.div
               variants={textItem}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
+              className="flex flex-row items-center gap-4"
             >
               <a
                 href="#shop"
-                className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-brand-primary text-white text-sm font-medium tracking-wide transition-colors duration-250 hover:bg-brand-hover focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+                className="inline-flex items-center justify-center h-10 px-6 rounded-full bg-terra text-white text-sm font-medium tracking-wide transition-colors duration-250 hover:bg-terra-hover focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terra"
                 aria-label="Try mochi — shop now"
               >
                 try mochi
@@ -310,7 +319,7 @@ export default function Hero() {
 
           {/* ── Cat animation column ── */}
           <motion.div
-            className="flex-1 h-56 sm:h-64 md:h-[380px] lg:h-[420px]"
+            className="flex-1 rounded-2xl overflow-hidden bg-cream flex items-center justify-center h-56 sm:h-64 md:h-[360px] lg:h-[400px]"
             variants={sceneVariant}
             initial="hidden"
             animate="visible"

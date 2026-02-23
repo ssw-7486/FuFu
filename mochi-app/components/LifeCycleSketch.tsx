@@ -630,10 +630,10 @@ export default function LifeCycleSketch() {
           </p>
         </div>
 
-        {/* ── Diagram wrapper ── */}
+        {/* ── Diagram wrapper — card with contained scroll on mobile ── */}
         <div
           ref={ref}
-          className="overflow-x-auto -mx-5 px-5 sm:overflow-visible sm:mx-0 sm:px-0"
+          className="rounded-2xl bg-white border border-gray-100 overflow-x-auto"
           role="img"
           aria-label="Lifecycle diagram: soybean plant to tofu byproduct to mochi cat litter to happy cat to back to earth"
         >
