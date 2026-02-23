@@ -33,19 +33,16 @@ export default function Nav() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 320 60"
-            className="h-9 w-auto"
+            viewBox="0 0 460 60"
+            className="h-8 w-auto"
             aria-hidden="true"
           >
-            {/* Symbol mark */}
-            <rect x="0" y="7" width="46" height="46" rx="10" ry="10" fill="#2D6A4F" />
-            <text x="23" y="36" fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" fontWeight="300" fontSize="28" letterSpacing="-1" fill="#FFFFFF" textAnchor="middle">m</text>
-            {/* ochi */}
-            <text x="54" y="30" dominantBaseline="middle" fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" fontWeight="300" fontSize="34" letterSpacing="6" textLength="80" lengthAdjust="spacingAndGlyphs" fill="#2D6A4F">ochi</text>
+            {/* mochi wordmark */}
+            <text x="0" y="30" dominantBaseline="middle" fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" fontWeight="300" fontSize="34" letterSpacing="6" fill="#2D6A4F">mochi</text>
             {/* Divider */}
-            <line x1="148" y1="16" x2="148" y2="44" stroke="#D1D5DB" strokeWidth="1" />
-            {/* Tagline */}
-            <text x="162" y="30" dominantBaseline="middle" fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" fontWeight="300" fontSize="10" letterSpacing="2.5" fill="#6E6E73">from bean to box.</text>
+            <line x1="156" y1="14" x2="156" y2="46" stroke="#D1D5DB" strokeWidth="1" />
+            {/* Tagline — 80% of mochi size */}
+            <text x="172" y="30" dominantBaseline="middle" fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" fontWeight="300" fontSize="27" letterSpacing="1.5" fill="#6E6E73">from bean to box.</text>
           </svg>
         </a>
 

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 60" width="460" height="60">
+
+  <!-- mochi wordmark -->
+  <text
+    x="0"
+    y="30"
+    dominant-baseline="middle"
+    font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+    font-weight="300"
+    font-size="34"
+    letter-spacing="6"
+    fill="#2D6A4F"
+  >mochi</text>
+
+  <!-- Vertical rule — equal 16px gap each side, accounting for trailing letterSpacing -->
+  <line x1="156" y1="14" x2="156" y2="46" stroke="#D1D5DB" stroke-width="1"/>
+
+  <!-- Tagline — 80% of mochi font size, same centerline -->
+  <text
+    x="172"
+    y="30"
+    dominant-baseline="middle"
+    font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+    font-weight="300"
+    font-size="27"
+    letter-spacing="1.5"
+    fill="#6E6E73"
+  >from bean to box.</text>
+
+</svg>
