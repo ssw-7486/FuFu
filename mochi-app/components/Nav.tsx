@@ -25,31 +25,28 @@ export default function Nav() {
         style={{ maxWidth: "980px" }}
         aria-label="Main navigation"
       >
-        {/* Wordmark — "mochi" SVG + tagline to the right */}
+        {/* Horizontal wordmark — symbol mark + ochi + tagline */}
         <a
           href="/"
-          className="flex flex-row items-center gap-1.5 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+          className="focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
           aria-label="mochi — go to homepage"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 320 60"
-            className="h-6 w-auto"
+            className="h-9 w-auto"
             aria-hidden="true"
           >
-            <text
-              x="160" y="48"
-              fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
-              fontWeight="300"
-              fontSize="52"
-              letterSpacing="10"
-              fill="#2D6A4F"
-              textAnchor="middle"
-            >mochi</text>
+            {/* Symbol mark */}
+            <rect x="0" y="7" width="46" height="46" rx="10" ry="10" fill="#2D6A4F" />
+            <text x="23" y="36" fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" fontWeight="300" fontSize="28" letterSpacing="-1" fill="#FFFFFF" textAnchor="middle">m</text>
+            {/* ochi */}
+            <text x="54" y="30" dominantBaseline="middle" fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" fontWeight="300" fontSize="34" letterSpacing="6" textLength="80" lengthAdjust="spacingAndGlyphs" fill="#2D6A4F">ochi</text>
+            {/* Divider */}
+            <line x1="148" y1="16" x2="148" y2="44" stroke="#D1D5DB" strokeWidth="1" />
+            {/* Tagline */}
+            <text x="162" y="30" dominantBaseline="middle" fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" fontWeight="300" fontSize="10" letterSpacing="2.5" fill="#6E6E73">from bean to box.</text>
           </svg>
-          <span className="text-[9px] font-light tracking-[0.2em] text-text-secondary uppercase border-l border-gray-200 pl-2">
-            from bean to box.
-          </span>
         </a>
 
         {/* CTA — terracotta, smaller */}

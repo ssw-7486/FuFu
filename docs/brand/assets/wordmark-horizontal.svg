@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="320" height="60">
+
+  <!-- Symbol mark — rounded square "m" acts as the M in mochi -->
+  <rect x="0" y="7" width="46" height="46" rx="10" ry="10" fill="#2D6A4F"/>
+  <text
+    x="23"
+    y="36"
+    font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+    font-weight="300"
+    font-size="28"
+    letter-spacing="-1"
+    fill="#FFFFFF"
+    text-anchor="middle"
+  >m</text>
+
+  <!-- "ochi" — centered on y=30 midline -->
+  <text
+    x="54"
+    y="30"
+    dominant-baseline="middle"
+    font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+    font-weight="300"
+    font-size="34"
+    letter-spacing="6"
+    textLength="80"
+    lengthAdjust="spacingAndGlyphs"
+    fill="#2D6A4F"
+  >ochi</text>
+
+  <!-- Vertical rule — centered on y=30, equal 14px gap each side -->
+  <line x1="148" y1="16" x2="148" y2="44" stroke="#D1D5DB" stroke-width="1"/>
+
+  <!-- Tagline — centered on same y=30 midline -->
+  <text
+    x="162"
+    y="30"
+    dominant-baseline="middle"
+    font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+    font-weight="300"
+    font-size="10"
+    letter-spacing="2.5"
+    fill="#6E6E73"
+  >from bean to box.</text>
+
+</svg>
