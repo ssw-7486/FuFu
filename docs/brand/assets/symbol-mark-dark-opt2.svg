@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Rounded square container -->
+  <rect width="200" height="200" rx="44" ry="44" fill="#2D6A4F"/>
+  <text
+    x="100"
+    y="128"
+    font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+    font-weight="300"
+    font-size="120"
+    letter-spacing="-2"
+    fill="#FFFFFF"
+    text-anchor="middle"
+    dominant-baseline="auto"
+  >m</text>
+</svg>

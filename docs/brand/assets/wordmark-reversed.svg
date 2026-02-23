@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 140" width="480" height="140">
+  <!-- Deep Sage background -->
+  <rect width="480" height="140" fill="#2D6A4F"/>
+
+  <!-- mochi wordmark -->
+  <text
+    x="240"
+    y="80"
+    font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+    font-weight="300"
+    font-size="72"
+    letter-spacing="14"
+    fill="#FFFFFF"
+    text-anchor="middle"
+    dominant-baseline="auto"
+  >mochi</text>
+
+  <!-- tagline -->
+  <text
+    x="240"
+    y="116"
+    font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+    font-weight="300"
+    font-size="14"
+    letter-spacing="4"
+    fill="#FFFFFF"
+    text-anchor="middle"
+    dominant-baseline="auto"
+  >from bean to box.</text>
+</svg>
