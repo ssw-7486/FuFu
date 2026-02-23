@@ -241,7 +241,7 @@ export default function Hero() {
       aria-label="Hero"
     >
       {/* ── Content container — two-column desktop, stacked mobile ── */}
-      <div className="w-full max-w-content mx-auto px-5 pt-16 pb-12 flex flex-col md:flex-row md:items-center gap-10 md:gap-12">
+      <div className="w-full max-w-content mx-auto px-10 pt-16 pb-12 flex flex-col md:flex-row md:items-center gap-10 md:gap-12">
 
         {/* ── Text column — left-aligned ── */}
         <motion.div

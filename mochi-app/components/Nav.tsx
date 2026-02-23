@@ -25,37 +25,31 @@ export default function Nav() {
         style={{ maxWidth: "980px" }}
         aria-label="Main navigation"
       >
-        {/* Wordmark — inline SVG lockup with tagline */}
+        {/* Wordmark — stacked: SVG "mochi" + HTML tagline for legibility */}
         <a
           href="/"
-          className="focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+          className="flex flex-col items-start leading-none gap-[3px] focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
           aria-label="mochi — go to homepage"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 480 140"
-            className="h-8 w-auto"
+            viewBox="0 0 320 60"
+            className="h-6 w-auto"
             aria-hidden="true"
           >
             <text
-              x="240" y="80"
+              x="160" y="48"
               fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
               fontWeight="300"
-              fontSize="72"
-              letterSpacing="14"
+              fontSize="52"
+              letterSpacing="10"
               fill="#2D6A4F"
               textAnchor="middle"
             >mochi</text>
-            <text
-              x="240" y="116"
-              fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
-              fontWeight="300"
-              fontSize="14"
-              letterSpacing="4"
-              fill="#6E6E73"
-              textAnchor="middle"
-            >from bean to box.</text>
           </svg>
+          <span className="text-[9px] font-light tracking-[0.22em] text-text-secondary uppercase pl-[2px]">
+            from bean to box.
+          </span>
         </a>
 
         {/* CTA — terracotta, smaller */}
