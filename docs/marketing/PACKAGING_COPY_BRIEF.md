@@ -53,9 +53,12 @@ These elements appear identically across all three bags. See per-SKU section for
 
 **[LOCKED]**
 
+> **MANDATORY:** The tagline "from bean to box" must always appear with the mochi wordmark — on the front panel, back panel footer, and side gusset. The wordmark and tagline are a locked unit and may never be separated. Never drop the tagline to save space; reduce the overall lockup size instead.
+
 - Position: Upper-left corner, or centered top — designer's choice based on pouch proportions. Never centered-middle.
-- Lockup: mochi wordmark + tagline lockup below: *from bean to box*
+- Lockup: mochi wordmark + tagline directly below: *from bean to box*
 - Wordmark color: Deep Sage (#2D6A4F) on Warm Cream background; white on Deep Sage background panels
+- Tagline color: #6E6E73 (muted, visually distinct from the wordmark — not Deep Sage)
 - Tagline: Inter Light, wide tracking, one size step below the wordmark
 - Clear space: maintain clear space equal to the cap height of the "m" on all four sides of the lockup
 - Do not append "cat litter" to the wordmark — the product category line handles this separately

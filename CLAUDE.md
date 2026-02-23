@@ -79,6 +79,10 @@ Font: **Inter** (light 300 for wordmark, regular/medium elsewhere)
 - `h-nav` / `spacing-nav`: 60px
 - Page horizontal padding: `px-5`
 
+## Tagline Rule
+
+**The tagline "from bean to box" must always appear with the mochi wordmark.** It is a locked unit on all surfaces — packaging, print, digital, and social. Never omit the tagline to save space; reduce the overall lockup size instead. The only permitted exception is the mobile nav (`< sm` viewport) where horizontal space is critically constrained.
+
 ## Wordmark
 
 The nav wordmark is SVG text (not a font file):

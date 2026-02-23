@@ -227,7 +227,9 @@ mochi does not over-explain, shout, or over-promise. We trust our audience to co
 ## 7. Messaging Pillars and Taglines
 
 **Primary Tagline**
-> mochi. from bean to box.
+> from bean to box
+
+> **MANDATORY RULE:** The tagline "from bean to box" must appear alongside the mochi wordmark on ALL surfaces — packaging (front panel, back panel footer, side gusset), print collateral, digital, and social. It is never optional. The wordmark and tagline are a locked unit. The only permitted exception is the mobile navigation bar where horizontal space is critically constrained (under 640px viewport width).
 
 **Alternative Taglines**
 - "Clean by nature."

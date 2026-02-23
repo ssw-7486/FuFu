@@ -70,8 +70,10 @@ The front panel is divided into six zones reading top to bottom. Proportions bel
 
 **Content:** Stacked wordmark lockup.
 
+> **MANDATORY:** The tagline "from bean to box" must always appear with the mochi wordmark. It is a locked unit on all packaging surfaces — front panel, back panel footer, and side gusset. Never omit the tagline to save space; reduce the wordmark size instead.
+
 - "mochi": Inter Light (300), 36pt / 42pt / 48pt across SKUs. Letter-spacing +14 units. Color: Deep Sage #2D6A4F
-- "from bean to box": Inter Light (300), 8pt / 9pt / 10pt. Letter-spacing +4 units. Color: Deep Sage #2D6A4F
+- "from bean to box": Inter Light (300), 9pt / 10pt / 11pt. Letter-spacing +4 units. Color: #6E6E73 (text-secondary — visually distinct from the wordmark)
 - Use the **stacked** variant — not the horizontal Nav wordmark
 - Centered horizontally. Top margin from panel edge: 0.375"
 - Clear space: equal to the cap height of the "m" on all four sides
