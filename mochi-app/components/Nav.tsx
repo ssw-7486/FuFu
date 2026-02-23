@@ -28,7 +28,7 @@ export default function Nav() {
         {/* Wordmark — "mochi" SVG + tagline to the right */}
         <a
           href="/"
-          className="flex flex-row items-center gap-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+          className="flex flex-row items-center gap-1.5 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
           aria-label="mochi — go to homepage"
         >
           <svg
@@ -47,7 +47,7 @@ export default function Nav() {
               textAnchor="middle"
             >mochi</text>
           </svg>
-          <span className="text-[9px] font-light tracking-[0.2em] text-text-secondary uppercase border-l border-gray-200 pl-3">
+          <span className="text-[9px] font-light tracking-[0.2em] text-text-secondary uppercase border-l border-gray-200 pl-2">
             from bean to box.
           </span>
         </a>
@@ -55,7 +55,7 @@ export default function Nav() {
         {/* CTA — terracotta, smaller */}
         <a
           href="#shop"
-          className="inline-flex items-center justify-center h-7 px-4 rounded-full bg-terra text-white text-xs font-medium tracking-wide transition-colors duration-250 hover:bg-terra-hover focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terra"
+          className="inline-flex items-center justify-center h-7 px-4 rounded-full bg-terra text-white text-xs font-medium tracking-wide whitespace-nowrap transition-colors duration-250 hover:bg-terra-hover focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terra"
           aria-label="Shop mochi cat litter"
         >
           shop now
