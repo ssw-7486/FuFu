@@ -25,10 +25,10 @@ export default function Nav() {
         style={{ maxWidth: "980px" }}
         aria-label="Main navigation"
       >
-        {/* Wordmark — stacked: SVG "mochi" + HTML tagline for legibility */}
+        {/* Wordmark — "mochi" SVG + tagline to the right */}
         <a
           href="/"
-          className="flex flex-col items-start leading-none gap-[3px] focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+          className="flex flex-row items-center gap-3 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
           aria-label="mochi — go to homepage"
         >
           <svg
@@ -47,7 +47,7 @@ export default function Nav() {
               textAnchor="middle"
             >mochi</text>
           </svg>
-          <span className="text-[9px] font-light tracking-[0.22em] text-text-secondary uppercase pl-[2px]">
+          <span className="text-[9px] font-light tracking-[0.2em] text-text-secondary uppercase border-l border-gray-200 pl-3">
             from bean to box.
           </span>
         </a>
