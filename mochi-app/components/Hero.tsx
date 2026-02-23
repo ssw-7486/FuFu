@@ -56,13 +56,13 @@ function CatScene() {
         role="img"
         aria-label="Illustrated cats playing"
       >
-        {/* ── Sitting cat (left) ── */}
+        {/* ── Sitting cat (left) — line-drawing style ── */}
         <g>
-          {/* Tail — slow lazy swish */}
+          {/* Tail — slow lazy swish, thin stroke */}
           <motion.path
             d="M148 310 C120 320 100 340 115 358 C128 372 150 362 152 345"
             stroke="#2D6A4F"
-            strokeWidth="10"
+            strokeWidth="3"
             strokeLinecap="round"
             fill="none"
             animate={{
@@ -76,58 +76,50 @@ function CatScene() {
             transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
           />
 
-          {/* Body */}
-          <ellipse cx="170" cy="290" rx="42" ry="50" fill="#2D6A4F" />
+          {/* Body — outline + 5% wash */}
+          <ellipse cx="170" cy="290" rx="42" ry="50" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="2" />
 
-          {/* Head */}
-          <ellipse cx="170" cy="230" rx="34" ry="30" fill="#2D6A4F" />
+          {/* Head — outline + 5% wash */}
+          <ellipse cx="170" cy="230" rx="34" ry="30" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="2" />
 
           {/* Left ear */}
-          <polygon points="148,215 140,190 162,208" fill="#2D6A4F" />
-          {/* Left ear inner */}
-          <polygon points="150,212 144,194 160,208" fill="#F5F5F7" opacity="0.6" />
-
+          <polygon points="148,215 140,190 162,208" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="1.5" strokeLinejoin="round" />
           {/* Right ear */}
-          <polygon points="192,215 200,190 178,208" fill="#2D6A4F" />
-          {/* Right ear inner */}
-          <polygon points="190,212 196,194 180,208" fill="#F5F5F7" opacity="0.6" />
+          <polygon points="192,215 200,190 178,208" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="1.5" strokeLinejoin="round" />
 
-          {/* Eyes */}
-          <ellipse cx="160" cy="228" rx="5" ry="5.5" fill="#F5F5F7" />
-          <ellipse cx="180" cy="228" rx="5" ry="5.5" fill="#F5F5F7" />
-          <circle cx="161" cy="229" r="2.5" fill="#1D1D1F" />
-          <circle cx="181" cy="229" r="2.5" fill="#1D1D1F" />
-          <circle cx="162" cy="228" r="1" fill="white" />
-          <circle cx="182" cy="228" r="1" fill="white" />
+          {/* Eyes — squint arcs (happy/calm) */}
+          <path d="M156 226 Q160 222 164 226" stroke="#2D6A4F" strokeWidth="2" fill="none" strokeLinecap="round" />
+          <path d="M176 226 Q180 222 184 226" stroke="#2D6A4F" strokeWidth="2" fill="none" strokeLinecap="round" />
 
-          {/* Nose + mouth */}
-          <ellipse cx="170" cy="240" rx="2.5" ry="2" fill="#F5F5F7" opacity="0.8" />
+          {/* Nose */}
+          <ellipse cx="170" cy="237" rx="2.5" ry="2" fill="#2D6A4F" fillOpacity="0.4" />
+          {/* Mouth */}
           <path
-            d="M168 242 Q170 246 172 242"
-            stroke="#F5F5F7"
+            d="M168 239 Q170 243 172 239"
+            stroke="#2D6A4F"
             strokeWidth="1.5"
             fill="none"
             strokeLinecap="round"
-            opacity="0.7"
+            opacity="0.6"
           />
 
-          {/* Front paws */}
-          <ellipse cx="152" cy="336" rx="14" ry="10" fill="#2D6A4F" />
-          <ellipse cx="188" cy="336" rx="14" ry="10" fill="#2D6A4F" />
+          {/* Front paws — outline ellipses */}
+          <ellipse cx="152" cy="336" rx="14" ry="10" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="1.5" />
+          <ellipse cx="188" cy="336" rx="14" ry="10" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="1.5" />
 
-          {/* Toes */}
-          <ellipse cx="146" cy="339" rx="4" ry="3" fill="#1E4D38" />
-          <ellipse cx="152" cy="341" rx="4" ry="3" fill="#1E4D38" />
-          <ellipse cx="158" cy="339" rx="4" ry="3" fill="#1E4D38" />
-          <ellipse cx="182" cy="339" rx="4" ry="3" fill="#1E4D38" />
-          <ellipse cx="188" cy="341" rx="4" ry="3" fill="#1E4D38" />
-          <ellipse cx="194" cy="339" rx="4" ry="3" fill="#1E4D38" />
+          {/* Toe dividers — short strokes */}
+          <line x1="146" y1="333" x2="146" y2="340" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+          <line x1="152" y1="334" x2="152" y2="341" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+          <line x1="158" y1="333" x2="158" y2="340" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+          <line x1="182" y1="333" x2="182" y2="340" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+          <line x1="188" y1="334" x2="188" y2="341" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+          <line x1="194" y1="333" x2="194" y2="340" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
 
           {/* Whiskers */}
-          <line x1="140" y1="237" x2="162" y2="240" stroke="#F5F5F7" strokeWidth="1.2" strokeLinecap="round" opacity="0.9" />
-          <line x1="140" y1="241" x2="162" y2="242" stroke="#F5F5F7" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
-          <line x1="178" y1="240" x2="200" y2="237" stroke="#F5F5F7" strokeWidth="1.2" strokeLinecap="round" opacity="0.9" />
-          <line x1="178" y1="242" x2="200" y2="241" stroke="#F5F5F7" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
+          <line x1="140" y1="235" x2="162" y2="238" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
+          <line x1="140" y1="239" x2="162" y2="240" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.3" />
+          <line x1="178" y1="238" x2="200" y2="235" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
+          <line x1="178" y1="240" x2="200" y2="239" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.3" />
 
           {/* Batting paw — right arm reaching */}
           <motion.g
@@ -135,32 +127,31 @@ function CatScene() {
             style={{ originX: "195px", originY: "285px" }}
             transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
           >
-            <ellipse cx="212" cy="272" rx="13" ry="10" fill="#2D6A4F" />
-            <ellipse cx="206" cy="276" rx="4" ry="3" fill="#1E4D38" />
-            <ellipse cx="212" cy="279" rx="4" ry="3" fill="#1E4D38" />
-            <ellipse cx="218" cy="276" rx="4" ry="3" fill="#1E4D38" />
+            <ellipse cx="212" cy="272" rx="13" ry="10" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="1.5" />
+            <line x1="206" y1="270" x2="206" y2="277" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+            <line x1="212" y1="271" x2="212" y2="279" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+            <line x1="218" y1="270" x2="218" y2="277" stroke="#2D6A4F" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
           </motion.g>
         </g>
 
-        {/* ── Tiny bouncing ball ── */}
+        {/* ── Tiny bouncing ball — lighter, outline style ── */}
         <motion.g
           animate={{ y: [-6, 6, -6], x: [0, 4, -2, 0] }}
           transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
         >
-          <circle cx="248" cy="258" r="10" fill="#74C69D" />
-          <circle cx="245" cy="254" r="3" fill="white" opacity="0.4" />
+          <circle cx="248" cy="258" r="8" fill="#74C69D" fillOpacity="0.55" stroke="#2D6A4F" strokeWidth="1.5" />
         </motion.g>
 
-        {/* ── Playful cat (right, smaller, curled) ── */}
+        {/* ── Playful cat (right, smaller, curled) — line-drawing style ── */}
         <motion.g
           animate={{ y: [0, -5, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
         >
-          {/* Curled tail — wider sweep, offset timing from left cat */}
+          {/* Curled tail — thin stroke */}
           <motion.path
             d="M310 330 C340 310 360 325 350 345 C342 360 322 354 320 340"
             stroke="#2D6A4F"
-            strokeWidth="9"
+            strokeWidth="3"
             strokeLinecap="round"
             fill="none"
             animate={{
@@ -174,81 +165,57 @@ function CatScene() {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
           />
 
-          {/* Body */}
-          <ellipse cx="300" cy="308" rx="36" ry="42" fill="#2D6A4F" />
+          {/* Body — outline + 5% wash */}
+          <ellipse cx="300" cy="308" rx="36" ry="42" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="2" />
 
-          {/* Head */}
-          <ellipse cx="295" cy="255" rx="28" ry="26" fill="#2D6A4F" />
+          {/* Head — outline + 5% wash */}
+          <ellipse cx="295" cy="255" rx="28" ry="26" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="2" />
 
           {/* Ears */}
-          <polygon points="278,243 270,220 292,238" fill="#2D6A4F" />
-          <polygon points="280,240 274,222 290,236" fill="#F5F5F7" opacity="0.55" />
-          <polygon points="312,243 320,220 298,238" fill="#2D6A4F" />
-          <polygon points="310,240 316,222 300,236" fill="#F5F5F7" opacity="0.55" />
+          <polygon points="278,243 270,220 292,238" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="1.5" strokeLinejoin="round" />
+          <polygon points="312,243 320,220 298,238" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="1.5" strokeLinejoin="round" />
 
-          {/* Eyes — squinting/happy */}
-          <path d="M284 253 Q287 249 290 253" stroke="#F5F5F7" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-          <path d="M300 253 Q303 249 306 253" stroke="#F5F5F7" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+          {/* Eyes — squinting/happy arcs */}
+          <path d="M284 253 Q287 249 290 253" stroke="#2D6A4F" strokeWidth="2" fill="none" strokeLinecap="round" />
+          <path d="M300 253 Q303 249 306 253" stroke="#2D6A4F" strokeWidth="2" fill="none" strokeLinecap="round" />
 
           {/* Nose */}
-          <ellipse cx="295" cy="262" rx="2" ry="1.5" fill="#F5F5F7" opacity="0.8" />
+          <ellipse cx="295" cy="261" rx="2" ry="1.5" fill="#2D6A4F" fillOpacity="0.4" />
 
-          {/* Front paws tucked */}
-          <ellipse cx="282" cy="346" rx="12" ry="8" fill="#2D6A4F" />
-          <ellipse cx="314" cy="346" rx="12" ry="8" fill="#2D6A4F" />
+          {/* Front paws tucked — outline */}
+          <ellipse cx="282" cy="346" rx="12" ry="8" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="1.5" />
+          <ellipse cx="314" cy="346" rx="12" ry="8" fill="#2D6A4F" fillOpacity="0.05" stroke="#2D6A4F" strokeWidth="1.5" />
         </motion.g>
 
-        {/* ── Floating sparkle particles ── */}
-        {/* Particle 1 */}
+        {/* ── Floating sparkle particles — softened ── */}
         <motion.circle
-          cx="230"
-          cy="200"
-          r="3"
-          fill="#74C69D"
-          opacity="0.7"
-          animate={{ y: [-60, 0], opacity: [0, 0.7, 0] }}
+          cx="230" cy="200" r="3"
+          fill="#2D6A4F" opacity="0.25"
+          animate={{ y: [-60, 0], opacity: [0, 0.25, 0] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut", delay: 0 }}
         />
-        {/* Particle 2 */}
         <motion.circle
-          cx="260"
-          cy="220"
-          r="2"
-          fill="#2D6A4F"
-          opacity="0.5"
-          animate={{ y: [-50, 0], opacity: [0, 0.5, 0] }}
+          cx="260" cy="220" r="2"
+          fill="#2D6A4F" opacity="0.2"
+          animate={{ y: [-50, 0], opacity: [0, 0.2, 0] }}
           transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut", delay: 0.7 }}
         />
-        {/* Particle 3 */}
         <motion.circle
-          cx="200"
-          cy="230"
-          r="2.5"
-          fill="#74C69D"
-          opacity="0.6"
-          animate={{ y: [-55, 0], opacity: [0, 0.6, 0] }}
+          cx="200" cy="230" r="2.5"
+          fill="#74C69D" opacity="0.3"
+          animate={{ y: [-55, 0], opacity: [0, 0.3, 0] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeOut", delay: 1.3 }}
         />
-        {/* Particle 4 */}
         <motion.circle
-          cx="340"
-          cy="210"
-          r="2"
-          fill="#2D6A4F"
-          opacity="0.4"
-          animate={{ y: [-45, 0], opacity: [0, 0.4, 0] }}
+          cx="340" cy="210" r="2"
+          fill="#2D6A4F" opacity="0.2"
+          animate={{ y: [-45, 0], opacity: [0, 0.2, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeOut", delay: 0.4 }}
         />
-        {/* Particle 5 — small diamond sparkle */}
         <motion.rect
-          x="280"
-          y="195"
-          width="4"
-          height="4"
-          fill="#74C69D"
-          opacity="0.5"
-          rx="1"
-          animate={{ y: [-50, 0], opacity: [0, 0.5, 0], rotate: [0, 45, 90] }}
+          x="280" y="195" width="4" height="4"
+          fill="#74C69D" opacity="0.25" rx="1"
+          animate={{ y: [-50, 0], opacity: [0, 0.25, 0], rotate: [0, 45, 90] }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeOut", delay: 1.8 }}
         />
       </svg>
@@ -270,15 +237,15 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center pt-nav overflow-hidden"
+      className="relative pt-nav overflow-hidden"
       aria-label="Hero"
     >
-      {/* ── Content container ── */}
-      <div className="w-full max-w-content mx-auto px-5 flex flex-col items-center text-center">
+      {/* ── Content container — two-column desktop, stacked mobile ── */}
+      <div className="w-full max-w-content mx-auto px-5 pt-16 pb-12 flex flex-col md:flex-row md:items-center gap-10 md:gap-12">
 
-        {/* ── Text block ── */}
+        {/* ── Text column — left-aligned ── */}
         <motion.div
-          className="flex flex-col items-center"
+          className="flex-1 flex flex-col items-start text-left"
           variants={textContainer}
           initial="hidden"
           animate="visible"
@@ -286,7 +253,7 @@ export default function Hero() {
           {/* Eyebrow */}
           <motion.p
             variants={textItem}
-            className="text-xs text-text-secondary uppercase tracking-widest mb-5"
+            className="text-xs text-text-secondary uppercase tracking-widest mb-4"
           >
             no clay
             <span className="mx-2 text-soft-sage" aria-hidden="true">·</span>
@@ -298,15 +265,15 @@ export default function Hero() {
           {/* Headline */}
           <motion.h1
             variants={textItem}
-            className="text-[2.25rem] sm:text-[3rem] md:text-[3.75rem] font-bold leading-[1.08] tracking-[-0.04em] text-text-primary mb-6"
+            className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] font-bold leading-[1.08] tracking-[-0.04em] text-text-primary mb-5"
           >
-            clean litter, finally.
+            clean litter,<br />finally.
           </motion.h1>
 
           {/* Subline */}
           <motion.p
             variants={textItem}
-            className="text-base sm:text-body-lg text-text-secondary leading-relaxed max-w-[480px] mb-10"
+            className="text-base sm:text-body-lg text-text-secondary leading-relaxed max-w-[400px] mb-8"
           >
             Tofu-derived, dust-free, and biodegradable — built for cats you actually care about.
           </motion.p>
@@ -314,7 +281,7 @@ export default function Hero() {
           {/* CTA group */}
           <motion.div
             variants={textItem}
-            className="flex flex-row items-center gap-4 mb-12"
+            className="flex flex-row items-center gap-4"
           >
             <a
               href="#shop"
@@ -332,14 +299,17 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* ── Cat illustration band ── */}
+        {/* ── Cat illustration card — right column ── */}
         <motion.div
-          className="w-full bg-cream rounded-2xl flex items-center justify-center h-[240px] sm:h-[300px] md:h-[360px] overflow-hidden"
+          className="flex-1 bg-cream rounded-2xl flex items-end justify-center h-[280px] sm:h-[320px] md:h-[400px] overflow-hidden"
           variants={bandVariant}
           initial="hidden"
           animate="visible"
         >
-          <CatScene />
+          {/* Negative margin pulls cats up from bottom of card */}
+          <div className="w-full mb-[-20px]">
+            <CatScene />
+          </div>
         </motion.div>
 
       </div>
