@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mochi — Packaging Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #D6D0C8;
+  font-family: 'Inter', -apple-system, sans-serif;
+  padding: 48px 32px 80px;
+  color: #1D1D1F;
+}
+.page-header {
+  max-width: 1380px;
+  margin: 0 auto 52px;
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+.page-title {
+  font-size: 26px;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: #2D6A4F;
+}
+.page-meta {
+  font-size: 11px;
+  color: #6E6E73;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.sku-section {
+  max-width: 1380px;
+  margin: 0 auto 72px;
+}
+.sku-header {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #6E6E73;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+.panels {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+.panel-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.panel-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6E6E73;
+  text-align: center;
+}
+
+/* ── FRONT PANEL ── */
+.front {
+  background: #FAF3E8;
+  border-radius: 10px 10px 3px 3px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.16), 0 2px 6px rgba(0,0,0,0.08);
+}
+.f-wordmark {
+  text-align: center;
+  padding: 18px 20px 6px;
+}
+.f-mochi {
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  color: #2D6A4F;
+  display: block;
+  line-height: 1;
+}
+.f-tagline {
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #2D6A4F;
+  display: block;
+  margin-top: 5px;
+  opacity: 0.75;
+}
+.f-category {
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #6E6E73;
+  display: block;
+  margin-top: 4px;
+}
+.f-headline {
+  text-align: center;
+  padding: 10px 20px 4px;
+}
+.f-headline h1 {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #1D1D1F;
+  line-height: 1.08;
+}
+.f-subline {
+  text-align: center;
+  padding: 4px 16px 0;
+}
+.f-subline p {
+  font-weight: 400;
+  color: #6E6E73;
+  line-height: 1.5;
+}
+.f-illustration {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px 0;
+}
+.f-pills {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 10px 10px;
+}
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #2D6A4F;
+  border-radius: 100px;
+  padding: 4px 9px;
+}
+.pill svg {
+  color: #2D6A4F;
+  flex-shrink: 0;
+}
+.pill-label {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #2D6A4F;
+}
+.f-trust {
+  background: #F4E1C1;
+  text-align: center;
+  padding: 8px 14px;
+}
+.f-trust-text {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #2D6A4F;
+}
+.f-trust-dot { color: #74C69D; margin: 0 5px; }
+.sku-badge {
+  position: absolute;
+  bottom: 54px;
+  right: 10px;
+  background: #C8714F;
+  color: white;
+  border-radius: 100px;
+  padding: 4px 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+.badge-num {
+  font-weight: 700;
+  line-height: 1;
+}
+.badge-unit {
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
+.sku-flag {
+  position: absolute;
+  top: 18px;
+  right: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #C8714F;
+  text-align: right;
+  line-height: 1.3;
+}
+
+/* ── BACK PANEL ── */
+.back {
+  background: #FFFFFF;
+  border-radius: 10px 10px 3px 3px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.16), 0 2px 6px rgba(0,0,0,0.08);
+  padding: 18px 16px 14px;
+}
+.b-section { margin-bottom: 14px; }
+.b-section:last-child { margin-bottom: 0; }
+.section-label {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #6E6E73;
+  margin-bottom: 5px;
+}
+.b-origin-headline {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #1D1D1F;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.b-origin-body p {
+  font-weight: 400;
+  color: #6E6E73;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+.b-origin-body p:last-child { margin-bottom: 0; }
+.why-cards {
+  display: flex;
+  gap: 10px;
+}
+.why-card { flex: 1; }
+.why-icon { margin-bottom: 4px; }
+.why-icon svg { color: #2D6A4F; }
+.why-head {
+  font-weight: 500;
+  color: #1D1D1F;
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
+}
+.why-body {
+  font-weight: 400;
+  color: #6E6E73;
+  line-height: 1.6;
+}
+.testimonials { display: flex; gap: 10px; }
+.testimonial { flex: 1; position: relative; padding-left: 10px; }
+.quote-mark {
+  position: absolute;
+  top: -3px;
+  left: -1px;
+  font-size: 24px;
+  line-height: 1;
+  color: #2D6A4F;
+  opacity: 0.15;
+  font-family: Georgia, serif;
+  user-select: none;
+}
+.quote-text {
+  font-weight: 400;
+  font-style: italic;
+  color: #1D1D1F;
+  line-height: 1.65;
+}
+.quote-attr {
+  font-weight: 400;
+  color: #6E6E73;
+  margin-top: 3px;
+}
+.sku-callout {
+  background: #FAF3E8;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 14px;
+}
+.sku-callout-head {
+  font-weight: 500;
+  color: #2D6A4F;
+  margin-bottom: 2px;
+}
+.sku-callout-body {
+  font-weight: 400;
+  color: #6E6E73;
+}
+.how-to-label {
+  font-weight: 500;
+  color: #2D6A4F;
+  margin-bottom: 2px;
+}
+.how-to-body {
+  font-weight: 400;
+  color: #6E6E73;
+  line-height: 1.55;
+}
+.b-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid #E8E8E8;
+  padding-top: 10px;
+  margin-top: auto;
+}
+.b-wordmark-block {}
+.b-wordmark-text {
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  color: #2D6A4F;
+  display: block;
+  line-height: 1;
+}
+.b-wordmark-url {
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #6E6E73;
+  margin-top: 3px;
+  display: block;
+}
+.barcode-box {
+  background: #f2f2f2;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.barcode-lines {
+  display: flex;
+  gap: 1px;
+  height: 20px;
+  align-items: stretch;
+}
+.barcode-lines span {
+  background: #1D1D1F;
+  display: block;
+}
+.barcode-upc {
+  font-size: 5px;
+  color: #6E6E73;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── PER-SKU SIZE OVERRIDES ── */
+
+/* 5 lb — 252 × 364px front, 252 × 330px back */
+.s5 .front { width: 252px; height: 364px; }
+.s5 .back  { width: 252px; min-height: 330px; }
+.s5 .f-mochi     { font-size: 17px; }
+.s5 .f-tagline   { font-size: 7px; }
+.s5 .f-category  { font-size: 6px; }
+.s5 .f-headline h1 { font-size: 20px; }
+.s5 .f-subline p { font-size: 7px; }
+.s5 .pill-label  { font-size: 6px; }
+.s5 .pill svg    { width: 8px; height: 8px; }
+.s5 .f-trust-text { font-size: 5.5px; }
+.s5 .sku-badge .badge-num { font-size: 14px; }
+.s5 .sku-badge .badge-unit { font-size: 7px; }
+.s5 .sku-flag    { font-size: 7px; }
+.s5 .section-label { font-size: 5.5px; }
+.s5 .b-origin-headline { font-size: 10px; }
+.s5 .b-origin-body p   { font-size: 6px; }
+.s5 .why-head    { font-size: 7px; }
+.s5 .why-body    { font-size: 5.5px; }
+.s5 .why-icon svg { width: 9px; height: 9px; }
+.s5 .quote-text  { font-size: 6px; }
+.s5 .quote-attr  { font-size: 5.5px; }
+.s5 .sku-callout-head { font-size: 7px; }
+.s5 .sku-callout-body { font-size: 6px; }
+.s5 .how-to-label { font-size: 6.5px; }
+.s5 .how-to-body  { font-size: 5.5px; }
+.s5 .b-wordmark-text { font-size: 10px; }
+.s5 .b-wordmark-url  { font-size: 5.5px; }
+.s5 .barcode-box { width: 38px; height: 26px; }
+
+/* 10 lb — 308 × 448px front, 308 × 406px back */
+.s10 .front { width: 308px; height: 448px; }
+.s10 .back  { width: 308px; min-height: 406px; }
+.s10 .f-mochi     { font-size: 21px; }
+.s10 .f-tagline   { font-size: 8.5px; }
+.s10 .f-category  { font-size: 7px; }
+.s10 .f-headline h1 { font-size: 26px; }
+.s10 .f-subline p { font-size: 8px; }
+.s10 .pill-label  { font-size: 7px; }
+.s10 .pill svg    { width: 9px; height: 9px; }
+.s10 .f-trust-text { font-size: 6.5px; }
+.s10 .sku-badge .badge-num { font-size: 18px; }
+.s10 .sku-badge .badge-unit { font-size: 8px; }
+.s10 .sku-flag    { font-size: 8px; }
+.s10 .section-label { font-size: 6px; }
+.s10 .b-origin-headline { font-size: 12px; }
+.s10 .b-origin-body p   { font-size: 7px; }
+.s10 .why-head    { font-size: 8px; }
+.s10 .why-body    { font-size: 6.5px; }
+.s10 .why-icon svg { width: 10px; height: 10px; }
+.s10 .quote-text  { font-size: 7px; }
+.s10 .quote-attr  { font-size: 6px; }
+.s10 .sku-callout-head { font-size: 8px; }
+.s10 .sku-callout-body { font-size: 7px; }
+.s10 .how-to-label { font-size: 7px; }
+.s10 .how-to-body  { font-size: 6.5px; }
+.s10 .b-wordmark-text { font-size: 12px; }
+.s10 .b-wordmark-url  { font-size: 6px; }
+.s10 .barcode-box { width: 44px; height: 30px; }
+
+/* 20 lb — 364 × 504px front, 364 × 462px back */
+.s20 .front { width: 364px; height: 504px; }
+.s20 .back  { width: 364px; min-height: 462px; }
+.s20 .f-mochi     { font-size: 25px; }
+.s20 .f-tagline   { font-size: 10px; }
+.s20 .f-category  { font-size: 8px; }
+.s20 .f-headline h1 { font-size: 31px; }
+.s20 .f-subline p { font-size: 9px; }
+.s20 .pill-label  { font-size: 7.5px; }
+.s20 .pill svg    { width: 10px; height: 10px; }
+.s20 .f-trust-text { font-size: 7px; }
+.s20 .sku-badge .badge-num { font-size: 22px; }
+.s20 .sku-badge .badge-unit { font-size: 9px; }
+.s20 .sku-flag    { font-size: 9px; }
+.s20 .section-label { font-size: 6.5px; }
+.s20 .b-origin-headline { font-size: 14px; }
+.s20 .b-origin-body p   { font-size: 7.5px; }
+.s20 .why-head    { font-size: 9px; }
+.s20 .why-body    { font-size: 7px; }
+.s20 .why-icon svg { width: 11px; height: 11px; }
+.s20 .quote-text  { font-size: 7.5px; }
+.s20 .quote-attr  { font-size: 6.5px; }
+.s20 .sku-callout-head { font-size: 9px; }
+.s20 .sku-callout-body { font-size: 7.5px; }
+.s20 .how-to-label { font-size: 8px; }
+.s20 .how-to-body  { font-size: 7px; }
+.s20 .b-wordmark-text { font-size: 14px; }
+.s20 .b-wordmark-url  { font-size: 6.5px; }
+.s20 .barcode-box { width: 50px; height: 34px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="page-title">mochi</div>
+  <div class="page-meta">Packaging Preview — Draft v1.0 — Feb 23 2026 — Front &amp; Back, All SKUs</div>
+</div>
+
+<!-- SVG defs for Lucide icons (reused across all panels) -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
+    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+  </symbol>
+  <symbol id="icon-droplets" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/>
+    <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>
+  </symbol>
+  <symbol id="icon-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+    <path d="M3 3v5h5"/>
+  </symbol>
+</svg>
+
+<!-- ═══════════════════ 5 LB ═══════════════════ -->
+<div class="sku-section s5">
+  <div class="sku-header">5 lb — Starter Size</div>
+  <div class="panels">
+
+    <!-- FRONT -->
+    <div class="panel-wrap">
+      <div class="panel-label">Front</div>
+      <div class="front">
+        <!-- SKU flag -->
+        <div class="sku-flag">5 lb<br>starter size</div>
+
+        <!-- Zone 1: Wordmark -->
+        <div class="f-wordmark">
+          <span class="f-mochi">mochi</span>
+          <span class="f-tagline">from bean to box</span>
+          <span class="f-category">tofu cat litter</span>
+        </div>
+
+        <!-- Zone 2: Headline -->
+        <div class="f-headline">
+          <h1>clean litter,<br>finally.</h1>
+        </div>
+
+        <!-- Zone 3: Subline -->
+        <div class="f-subline">
+          <p>Dust-free. Biodegradable. Made from soy.</p>
+        </div>
+
+        <!-- Zone 4: Illustration -->
+        <div class="f-illustration">
+          <svg viewBox="20 130 400 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:220px;" aria-hidden="true">
+            <!-- Particles -->
+            <circle cx="230" cy="175" r="3" fill="#2D6A4F" opacity="0.25"/>
+            <circle cx="200" cy="195" r="2.5" fill="#74C69D" opacity="0.30"/>
+            <rect x="280" y="170" width="4" height="4" rx="1" fill="#74C69D" opacity="0.25" transform="rotate(45 282 172)"/>
+            <!-- Cat 1 tail -->
+            <path d="M148 310 C120 320 100 340 115 358 C128 372 150 362 152 345" stroke="#2D6A4F" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <!-- Cat 1 body -->
+            <ellipse cx="170" cy="290" rx="42" ry="50" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <!-- Cat 1 head -->
+            <ellipse cx="170" cy="230" rx="34" ry="30" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <!-- Cat 1 ears -->
+            <polygon points="148,215 140,190 162,208" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <polygon points="192,215 200,190 178,208" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Cat 1 eyes -->
+            <path d="M156 226 Q160 222 164 226" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M176 226 Q180 222 184 226" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <!-- Cat 1 nose + mouth -->
+            <ellipse cx="170" cy="237" rx="2.5" ry="2" fill="#2D6A4F" fill-opacity="0.4"/>
+            <path d="M168 239 Q170 243 172 239" stroke="#2D6A4F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+            <!-- Cat 1 paws -->
+            <ellipse cx="152" cy="336" rx="14" ry="10" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <ellipse cx="188" cy="336" rx="14" ry="10" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <!-- Cat 1 whiskers -->
+            <line x1="140" y1="235" x2="162" y2="238" stroke="#2D6A4F" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+            <line x1="140" y1="239" x2="162" y2="240" stroke="#2D6A4F" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+            <line x1="178" y1="238" x2="200" y2="235" stroke="#2D6A4F" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+            <line x1="178" y1="240" x2="200" y2="239" stroke="#2D6A4F" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+            <!-- Cat 1 batting paw -->
+            <ellipse cx="212" cy="272" rx="13" ry="10" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <!-- Ball -->
+            <circle cx="248" cy="258" r="8" fill="#74C69D" fill-opacity="0.55" stroke="#2D6A4F" stroke-width="1.5"/>
+            <!-- Cat 2 tail -->
+            <path d="M310 330 C340 310 360 325 350 345 C342 360 322 354 320 340" stroke="#2D6A4F" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <!-- Cat 2 body -->
+            <ellipse cx="300" cy="308" rx="36" ry="42" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <!-- Cat 2 head -->
+            <ellipse cx="295" cy="255" rx="28" ry="26" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <!-- Cat 2 ears -->
+            <polygon points="278,243 270,220 292,238" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <polygon points="312,243 320,220 298,238" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Cat 2 eyes -->
+            <path d="M284 253 Q287 249 290 253" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M300 253 Q303 249 306 253" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <!-- Cat 2 nose -->
+            <ellipse cx="295" cy="261" rx="2" ry="1.5" fill="#2D6A4F" fill-opacity="0.4"/>
+            <!-- Cat 2 paws -->
+            <ellipse cx="282" cy="346" rx="12" ry="8" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <ellipse cx="314" cy="346" rx="12" ry="8" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+          </svg>
+        </div>
+
+        <!-- Zone 5: Benefit pills -->
+        <div class="f-pills">
+          <div class="pill">
+            <svg width="9" height="9" style="color:#2D6A4F"><use href="#icon-leaf"/></svg>
+            <span class="pill-label">Plant-Based</span>
+          </div>
+          <div class="pill">
+            <svg width="9" height="9" style="color:#2D6A4F"><use href="#icon-droplets"/></svg>
+            <span class="pill-label">Dust-Free</span>
+          </div>
+          <div class="pill">
+            <svg width="9" height="9" style="color:#2D6A4F"><use href="#icon-refresh"/></svg>
+            <span class="pill-label">Biodegradable</span>
+          </div>
+        </div>
+
+        <!-- SKU badge -->
+        <div class="sku-badge">
+          <span class="badge-num">5</span>
+          <span class="badge-unit">lb</span>
+        </div>
+
+        <!-- Zone 6: Trust band -->
+        <div class="f-trust">
+          <span class="f-trust-text">Compostable in 60 days<span class="f-trust-dot">·</span>Food-safe ingredients<span class="f-trust-dot">·</span>Biodegradable</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="panel-wrap">
+      <div class="panel-label">Back</div>
+      <div class="back">
+
+        <!-- Origin story -->
+        <div class="b-section">
+          <div class="section-label">Our Story</div>
+          <div class="b-origin-headline">we started with a better question.</div>
+          <div class="b-origin-body">
+            <p>Most cat litter is strip-mined clay or silica. We asked: what if it came from something already made?</p>
+            <p>Tofu production creates a soy byproduct that would otherwise be discarded. We turned it into mochi — plant-based, dust-free, biodegradable, and made from food-grade ingredients.</p>
+          </div>
+        </div>
+
+        <!-- 5 lb SKU callout -->
+        <div class="sku-callout">
+          <div class="sku-callout-head">new to mochi?</div>
+          <div class="sku-callout-body">Most cats switch without noticing. Start here.</div>
+        </div>
+
+        <!-- Why Tofu -->
+        <div class="b-section">
+          <div class="section-label">The Science Made Simple</div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div>
+              <div class="why-icon"><svg width="9" height="9" style="color:#2D6A4F"><use href="#icon-leaf"/></svg></div>
+              <div class="why-head">food-grade soy</div>
+              <div class="why-body">No clay, no silica, no synthetic fragrance.</div>
+            </div>
+            <div>
+              <div class="why-icon"><svg width="9" height="9" style="color:#2D6A4F"><use href="#icon-droplets"/></svg></div>
+              <div class="why-head">clumps on contact</div>
+              <div class="why-body">Firm, dry clumps in seconds. Easy to scoop.</div>
+            </div>
+            <div>
+              <div class="why-icon"><svg width="9" height="9" style="color:#2D6A4F"><use href="#icon-refresh"/></svg></div>
+              <div class="why-head">gone in 60 days</div>
+              <div class="why-body">Flush it or compost it. Nothing to landfill.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="b-section">
+          <div class="testimonials">
+            <div class="testimonial">
+              <div class="quote-mark">&ldquo;</div>
+              <div class="quote-text">Switched from clay six months ago. The dust difference alone was worth it.</div>
+              <div class="quote-attr">— Sarah M., San Francisco</div>
+            </div>
+            <div class="testimonial">
+              <div class="quote-mark">&ldquo;</div>
+              <div class="quote-text">I was skeptical. It actually clumps better than the brand I used for years.</div>
+              <div class="quote-attr">— James T., Brooklyn</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- How to use -->
+        <div class="b-section">
+          <div class="how-to-label">how to use</div>
+          <div class="how-to-body">Fill box 2–3 inches deep. Scoop daily. Flush small amounts or compost. Replace fully every 4–6 weeks.</div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="b-bottom">
+          <div class="b-wordmark-block">
+            <span class="b-wordmark-text">mochi</span>
+            <span class="b-wordmark-url">mochilitter.com · @mochilitter</span>
+          </div>
+          <div class="barcode-box">
+            <div class="barcode-lines">
+              <span style="width:1px"></span><span style="width:2px"></span><span style="width:1px"></span>
+              <span style="width:3px"></span><span style="width:1px"></span><span style="width:2px"></span>
+              <span style="width:1px"></span><span style="width:1px"></span><span style="width:2px"></span>
+              <span style="width:1px"></span>
+            </div>
+            <div class="barcode-upc">UPC placeholder</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ 10 LB ═══════════════════ -->
+<div class="sku-section s10">
+  <div class="sku-header">10 lb — Everyday</div>
+  <div class="panels">
+
+    <!-- FRONT -->
+    <div class="panel-wrap">
+      <div class="panel-label">Front</div>
+      <div class="front">
+        <div class="f-wordmark">
+          <span class="f-mochi">mochi</span>
+          <span class="f-tagline">from bean to box</span>
+          <span class="f-category">tofu cat litter</span>
+        </div>
+        <div class="f-headline"><h1>clean litter,<br>finally.</h1></div>
+        <div class="f-subline"><p>Dust-free. Biodegradable. Made from soy.</p></div>
+        <div class="f-illustration">
+          <svg viewBox="20 130 400 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px;" aria-hidden="true">
+            <circle cx="230" cy="175" r="3" fill="#2D6A4F" opacity="0.25"/>
+            <circle cx="260" cy="195" r="2" fill="#2D6A4F" opacity="0.20"/>
+            <circle cx="200" cy="195" r="2.5" fill="#74C69D" opacity="0.30"/>
+            <circle cx="340" cy="185" r="2" fill="#2D6A4F" opacity="0.20"/>
+            <rect x="280" y="170" width="4" height="4" rx="1" fill="#74C69D" opacity="0.25" transform="rotate(45 282 172)"/>
+            <path d="M148 310 C120 320 100 340 115 358 C128 372 150 362 152 345" stroke="#2D6A4F" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <ellipse cx="170" cy="290" rx="42" ry="50" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <ellipse cx="170" cy="230" rx="34" ry="30" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <polygon points="148,215 140,190 162,208" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <polygon points="192,215 200,190 178,208" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M156 226 Q160 222 164 226" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M176 226 Q180 222 184 226" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <ellipse cx="170" cy="237" rx="2.5" ry="2" fill="#2D6A4F" fill-opacity="0.4"/>
+            <path d="M168 239 Q170 243 172 239" stroke="#2D6A4F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+            <ellipse cx="152" cy="336" rx="14" ry="10" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <ellipse cx="188" cy="336" rx="14" ry="10" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <line x1="140" y1="235" x2="162" y2="238" stroke="#2D6A4F" stroke-width="1" opacity="0.4"/>
+            <line x1="140" y1="239" x2="162" y2="240" stroke="#2D6A4F" stroke-width="1" opacity="0.3"/>
+            <line x1="178" y1="238" x2="200" y2="235" stroke="#2D6A4F" stroke-width="1" opacity="0.4"/>
+            <line x1="178" y1="240" x2="200" y2="239" stroke="#2D6A4F" stroke-width="1" opacity="0.3"/>
+            <ellipse cx="212" cy="272" rx="13" ry="10" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <circle cx="248" cy="258" r="8" fill="#74C69D" fill-opacity="0.55" stroke="#2D6A4F" stroke-width="1.5"/>
+            <path d="M310 330 C340 310 360 325 350 345 C342 360 322 354 320 340" stroke="#2D6A4F" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <ellipse cx="300" cy="308" rx="36" ry="42" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <ellipse cx="295" cy="255" rx="28" ry="26" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <polygon points="278,243 270,220 292,238" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <polygon points="312,243 320,220 298,238" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M284 253 Q287 249 290 253" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M300 253 Q303 249 306 253" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <ellipse cx="295" cy="261" rx="2" ry="1.5" fill="#2D6A4F" fill-opacity="0.4"/>
+            <ellipse cx="282" cy="346" rx="12" ry="8" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <ellipse cx="314" cy="346" rx="12" ry="8" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="f-pills">
+          <div class="pill"><svg width="9" height="9" style="color:#2D6A4F"><use href="#icon-leaf"/></svg><span class="pill-label">Plant-Based</span></div>
+          <div class="pill"><svg width="9" height="9" style="color:#2D6A4F"><use href="#icon-droplets"/></svg><span class="pill-label">Dust-Free</span></div>
+          <div class="pill"><svg width="9" height="9" style="color:#2D6A4F"><use href="#icon-refresh"/></svg><span class="pill-label">Biodegradable</span></div>
+        </div>
+        <div class="sku-badge"><span class="badge-num">10</span><span class="badge-unit">lb</span></div>
+        <div class="f-trust">
+          <span class="f-trust-text">Compostable in 60 days<span class="f-trust-dot">·</span>Food-safe ingredients<span class="f-trust-dot">·</span>Biodegradable</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="panel-wrap">
+      <div class="panel-label">Back</div>
+      <div class="back">
+        <div class="b-section">
+          <div class="section-label">Our Story</div>
+          <div class="b-origin-headline">we started with a better question.</div>
+          <div class="b-origin-body">
+            <p>Most cat litters are made from strip-mined clay or silica — materials that aren't great for cats, homes, or landfills. We asked: what if litter could be made from something that already exists?</p>
+            <p>Tofu production creates a soy byproduct that would otherwise be discarded. We turned it into mochi — plant-based, dust-free, biodegradable, and genuinely better.</p>
+          </div>
+        </div>
+        <div class="b-section">
+          <div class="section-label">The Science Made Simple</div>
+          <div class="why-cards">
+            <div class="why-card">
+              <div class="why-icon"><svg width="10" height="10" style="color:#2D6A4F"><use href="#icon-leaf"/></svg></div>
+              <div class="why-head">food-grade soy</div>
+              <div class="why-body">Made from the same soy used in tofu production. No clay, no silica, no synthetic fragrances.</div>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><svg width="10" height="10" style="color:#2D6A4F"><use href="#icon-droplets"/></svg></div>
+              <div class="why-head">clumps on contact</div>
+              <div class="why-body">Firm, dry clumps in seconds. Easy to scoop. Low tracking.</div>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><svg width="10" height="10" style="color:#2D6A4F"><use href="#icon-refresh"/></svg></div>
+              <div class="why-head">gone in 60 days</div>
+              <div class="why-body">Fully biodegradable. Flush it or compost it. Nothing goes to landfill.</div>
+            </div>
+          </div>
+        </div>
+        <div class="b-section">
+          <div class="section-label">What Cat Owners Say</div>
+          <div class="testimonials">
+            <div class="testimonial">
+              <div class="quote-mark">&ldquo;</div>
+              <div class="quote-text">Switched from clay six months ago. The dust difference alone was worth it. My cat took to it immediately.</div>
+              <div class="quote-attr">— Sarah M., San Francisco</div>
+            </div>
+            <div class="testimonial">
+              <div class="quote-mark">&ldquo;</div>
+              <div class="quote-text">I was skeptical. It actually clumps better than the brand I used for years.</div>
+              <div class="quote-attr">— James T., Brooklyn</div>
+            </div>
+          </div>
+        </div>
+        <div class="b-section">
+          <div class="how-to-label">how to use</div>
+          <div class="how-to-body">Fill box 2–3 inches deep. Scoop daily. To dispose: flush small amounts or add to compost. Replace fully every 4–6 weeks.</div>
+        </div>
+        <div class="b-bottom">
+          <div class="b-wordmark-block">
+            <span class="b-wordmark-text">mochi</span>
+            <span class="b-wordmark-url">mochilitter.com · @mochilitter</span>
+          </div>
+          <div class="barcode-box">
+            <div class="barcode-lines">
+              <span style="width:1px"></span><span style="width:2px"></span><span style="width:1px"></span>
+              <span style="width:3px"></span><span style="width:1px"></span><span style="width:2px"></span>
+              <span style="width:1px"></span><span style="width:2px"></span><span style="width:1px"></span>
+            </div>
+            <div class="barcode-upc">UPC placeholder</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ 20 LB ═══════════════════ -->
+<div class="sku-section s20">
+  <div class="sku-header">20 lb — Multi-Cat / Best Value</div>
+  <div class="panels">
+
+    <!-- FRONT -->
+    <div class="panel-wrap">
+      <div class="panel-label">Front</div>
+      <div class="front">
+        <div class="sku-flag">20 lb<br>best value</div>
+        <div class="f-wordmark">
+          <span class="f-mochi">mochi</span>
+          <span class="f-tagline">from bean to box</span>
+          <span class="f-category">tofu cat litter</span>
+        </div>
+        <div class="f-headline"><h1>clean litter,<br>finally.</h1></div>
+        <div class="f-subline"><p>Dust-free. Biodegradable. Made from soy.</p></div>
+        <div class="f-illustration">
+          <svg viewBox="20 130 400 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:330px;" aria-hidden="true">
+            <!-- Full particle field (7 particles) -->
+            <circle cx="230" cy="175" r="3" fill="#2D6A4F" opacity="0.25"/>
+            <circle cx="260" cy="195" r="2" fill="#2D6A4F" opacity="0.20"/>
+            <circle cx="200" cy="195" r="2.5" fill="#74C69D" opacity="0.30"/>
+            <circle cx="340" cy="185" r="2" fill="#2D6A4F" opacity="0.20"/>
+            <rect x="280" y="170" width="4" height="4" rx="1" fill="#74C69D" opacity="0.25" transform="rotate(45 282 172)"/>
+            <circle cx="310" cy="160" r="2" fill="#2D6A4F" opacity="0.20"/>
+            <circle cx="240" cy="150" r="1.5" fill="#74C69D" opacity="0.25"/>
+            <!-- Cats + ball (same paths) -->
+            <path d="M148 310 C120 320 100 340 115 358 C128 372 150 362 152 345" stroke="#2D6A4F" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <ellipse cx="170" cy="290" rx="42" ry="50" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <ellipse cx="170" cy="230" rx="34" ry="30" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <polygon points="148,215 140,190 162,208" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <polygon points="192,215 200,190 178,208" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M156 226 Q160 222 164 226" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M176 226 Q180 222 184 226" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <ellipse cx="170" cy="237" rx="2.5" ry="2" fill="#2D6A4F" fill-opacity="0.4"/>
+            <path d="M168 239 Q170 243 172 239" stroke="#2D6A4F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+            <ellipse cx="152" cy="336" rx="14" ry="10" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <ellipse cx="188" cy="336" rx="14" ry="10" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <line x1="140" y1="235" x2="162" y2="238" stroke="#2D6A4F" stroke-width="1" opacity="0.4"/>
+            <line x1="140" y1="239" x2="162" y2="240" stroke="#2D6A4F" stroke-width="1" opacity="0.3"/>
+            <line x1="178" y1="238" x2="200" y2="235" stroke="#2D6A4F" stroke-width="1" opacity="0.4"/>
+            <line x1="178" y1="240" x2="200" y2="239" stroke="#2D6A4F" stroke-width="1" opacity="0.3"/>
+            <ellipse cx="212" cy="272" rx="13" ry="10" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <circle cx="248" cy="258" r="8" fill="#74C69D" fill-opacity="0.55" stroke="#2D6A4F" stroke-width="1.5"/>
+            <path d="M310 330 C340 310 360 325 350 345 C342 360 322 354 320 340" stroke="#2D6A4F" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <ellipse cx="300" cy="308" rx="36" ry="42" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <ellipse cx="295" cy="255" rx="28" ry="26" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="2"/>
+            <polygon points="278,243 270,220 292,238" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <polygon points="312,243 320,220 298,238" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M284 253 Q287 249 290 253" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M300 253 Q303 249 306 253" stroke="#2D6A4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <ellipse cx="295" cy="261" rx="2" ry="1.5" fill="#2D6A4F" fill-opacity="0.4"/>
+            <ellipse cx="282" cy="346" rx="12" ry="8" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+            <ellipse cx="314" cy="346" rx="12" ry="8" fill="#2D6A4F" fill-opacity="0.05" stroke="#2D6A4F" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="f-pills">
+          <div class="pill"><svg width="10" height="10" style="color:#2D6A4F"><use href="#icon-leaf"/></svg><span class="pill-label">Plant-Based</span></div>
+          <div class="pill"><svg width="10" height="10" style="color:#2D6A4F"><use href="#icon-droplets"/></svg><span class="pill-label">Dust-Free</span></div>
+          <div class="pill"><svg width="10" height="10" style="color:#2D6A4F"><use href="#icon-refresh"/></svg><span class="pill-label">Biodegradable</span></div>
+        </div>
+        <div class="sku-badge"><span class="badge-num">20</span><span class="badge-unit">lb</span></div>
+        <div class="f-trust">
+          <span class="f-trust-text">Compostable in 60 days<span class="f-trust-dot">·</span>Food-safe ingredients<span class="f-trust-dot">·</span>Biodegradable</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="panel-wrap">
+      <div class="panel-label">Back</div>
+      <div class="back">
+        <div class="b-section">
+          <div class="section-label">Our Story</div>
+          <div class="b-origin-headline">we started with a better question.</div>
+          <div class="b-origin-body">
+            <p>Most cat litters are made from strip-mined clay or silica — materials that aren't great for cats, homes, or landfills. We asked: what if litter could be made from something that already exists?</p>
+            <p>Tofu production creates a soy byproduct that would otherwise be discarded. We turned it into something remarkable. mochi is the result — plant-based, dust-free, biodegradable, and genuinely better.</p>
+          </div>
+        </div>
+        <!-- 20 lb SKU callout -->
+        <div class="sku-callout">
+          <div class="sku-callout-head">for multi-cat homes</div>
+          <div class="sku-callout-body">One bag. Up to 4–6 weeks per cat. Less to carry. Less to order.</div>
+        </div>
+        <div class="b-section">
+          <div class="section-label">The Science Made Simple</div>
+          <div class="why-cards">
+            <div class="why-card">
+              <div class="why-icon"><svg width="11" height="11" style="color:#2D6A4F"><use href="#icon-leaf"/></svg></div>
+              <div class="why-head">food-grade soy</div>
+              <div class="why-body">Made from the same soy used in tofu production. No clay, no silica, no synthetic fragrances.</div>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><svg width="11" height="11" style="color:#2D6A4F"><use href="#icon-droplets"/></svg></div>
+              <div class="why-head">clumps on contact</div>
+              <div class="why-body">Forms tight, dry clumps in seconds. Easy to scoop. Low tracking. Your floors stay clean.</div>
+            </div>
+            <div class="why-card">
+              <div class="why-icon"><svg width="11" height="11" style="color:#2D6A4F"><use href="#icon-refresh"/></svg></div>
+              <div class="why-head">gone in 60 days</div>
+              <div class="why-body">Fully biodegradable. Flush it or compost it. Nothing goes to landfill.</div>
+            </div>
+          </div>
+        </div>
+        <div class="b-section">
+          <div class="section-label">What Cat Owners Say</div>
+          <div class="testimonials">
+            <div class="testimonial">
+              <div class="quote-mark">&ldquo;</div>
+              <div class="quote-text">Switched from clay six months ago. The dust difference alone was worth it. My cat took to it immediately.</div>
+              <div class="quote-attr">— Sarah M., San Francisco</div>
+            </div>
+            <div class="testimonial">
+              <div class="quote-mark">&ldquo;</div>
+              <div class="quote-text">I was skeptical. Now I tell everyone. It actually clumps better than the brand I used for years.</div>
+              <div class="quote-attr">— James T., Brooklyn</div>
+            </div>
+          </div>
+        </div>
+        <div class="b-section">
+          <div class="how-to-label">how to use</div>
+          <div class="how-to-body">Fill box 2–3 inches deep. Scoop daily. To dispose: flush small amounts or add to compost. Replace fully every 4–6 weeks.</div>
+        </div>
+        <div class="b-bottom">
+          <div class="b-wordmark-block">
+            <span class="b-wordmark-text">mochi</span>
+            <span class="b-wordmark-url">mochilitter.com · @mochilitter</span>
+          </div>
+          <div class="barcode-box">
+            <div class="barcode-lines">
+              <span style="width:1px"></span><span style="width:2px"></span><span style="width:2px"></span>
+              <span style="width:1px"></span><span style="width:3px"></span><span style="width:1px"></span>
+              <span style="width:2px"></span><span style="width:1px"></span><span style="width:2px"></span>
+            </div>
+            <div class="barcode-upc">UPC placeholder</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
