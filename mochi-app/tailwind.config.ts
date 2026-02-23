@@ -39,13 +39,13 @@ const config: Config = {
         editorial: "680px",
       },
       height: {
-        nav: "48px",
+        nav: "60px",
       },
       padding: {
-        nav: "48px",
+        nav: "60px",
       },
       spacing: {
-        nav: "48px",
+        nav: "60px",
       },
       transitionDuration: {
         "250": "250ms",
@@ -53,6 +53,15 @@ const config: Config = {
       boxShadow: {
         subtle: "0 1px 4px rgba(0,0,0,0.06)",
         "card-hover": "0 4px 16px rgba(0,0,0,0.08)",
+      },
+      animation: {
+        "bounce-slow": "bounce-slow 2s ease-in-out infinite",
+      },
+      keyframes: {
+        "bounce-slow": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(6px)" },
+        },
       },
     },
   },

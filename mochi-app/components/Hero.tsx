@@ -1,6 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion, type Variants } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 /* ─────────────────────────────────────────────
    Framer Motion variants
@@ -26,25 +28,31 @@ const textItem: Variants = {
   },
 };
 
-const sceneVariant: Variants = {
+const bandVariant: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 0.4, delay: 0.6, ease: "easeOut" },
+    transition: { duration: 0.4, delay: 0.4, ease: "easeOut" },
   },
 };
 
 /* ─────────────────────────────────────────────
    Animated cat scene — flat SVG illustration
+   Paths and animations are preserved exactly.
+   Only the outer wrapper className is updated
+   to work inside the new cream band.
 ───────────────────────────────────────────── */
 function CatScene() {
   return (
-    <div className="relative w-full h-full flex items-center justify-center select-none" aria-hidden="true">
+    <div
+      className="relative w-full h-full flex items-center justify-center select-none"
+      aria-hidden="true"
+    >
       <svg
         viewBox="0 0 440 400"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full max-w-sm md:max-w-md lg:max-w-lg"
+        className="w-full max-w-sm sm:max-w-md md:max-w-lg"
         role="img"
         aria-label="Illustrated cats playing"
       >
@@ -94,7 +102,14 @@ function CatScene() {
 
           {/* Nose + mouth */}
           <ellipse cx="170" cy="240" rx="2.5" ry="2" fill="#F5F5F7" opacity="0.8" />
-          <path d="M168 242 Q170 246 172 242" stroke="#F5F5F7" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.7" />
+          <path
+            d="M168 242 Q170 246 172 242"
+            stroke="#F5F5F7"
+            strokeWidth="1.5"
+            fill="none"
+            strokeLinecap="round"
+            opacity="0.7"
+          />
 
           {/* Front paws */}
           <ellipse cx="152" cy="336" rx="14" ry="10" fill="#2D6A4F" />
@@ -245,89 +260,102 @@ function CatScene() {
    Hero section
 ───────────────────────────────────────────── */
 export default function Hero() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section
-      className="flex items-center pt-nav min-h-[70vh] md:min-h-[72vh]"
+      className="relative min-h-screen flex flex-col justify-center pt-nav overflow-hidden"
       aria-label="Hero"
     >
+      {/* ── Content container ── */}
+      <div className="w-full max-w-content mx-auto px-5 flex flex-col items-center text-center">
+
+        {/* ── Text block ── */}
+        <motion.div
+          className="flex flex-col items-center"
+          variants={textContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Eyebrow */}
+          <motion.p
+            variants={textItem}
+            className="text-xs text-text-secondary uppercase tracking-widest mb-5"
+          >
+            no clay
+            <span className="mx-2 text-soft-sage" aria-hidden="true">·</span>
+            no silica dust
+            <span className="mx-2 text-soft-sage" aria-hidden="true">·</span>
+            no synthetic fragrance
+          </motion.p>
+
+          {/* Headline */}
+          <motion.h1
+            variants={textItem}
+            className="text-[2.25rem] sm:text-[3rem] md:text-[3.75rem] font-bold leading-[1.08] tracking-[-0.04em] text-text-primary mb-6"
+          >
+            clean litter, finally.
+          </motion.h1>
+
+          {/* Subline */}
+          <motion.p
+            variants={textItem}
+            className="text-base sm:text-body-lg text-text-secondary leading-relaxed max-w-[480px] mb-10"
+          >
+            Tofu-derived, dust-free, and biodegradable — built for cats you actually care about.
+          </motion.p>
+
+          {/* CTA group */}
+          <motion.div
+            variants={textItem}
+            className="flex flex-row items-center gap-4 mb-12"
+          >
+            <a
+              href="#shop"
+              className="inline-flex items-center justify-center h-10 px-6 rounded-full bg-terra text-white text-sm font-medium tracking-wide hover:bg-terra-hover transition-colors duration-250 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terra"
+              aria-label="Try mochi — shop now"
+            >
+              try mochi
+            </a>
+            <a
+              href="#why-tofu"
+              className="text-sm font-medium text-brand-primary hover:underline underline-offset-4 transition-all duration-250 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+            >
+              how it works &rarr;
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* ── Cat illustration band ── */}
+        <motion.div
+          className="w-full bg-cream rounded-2xl flex items-center justify-center h-[240px] sm:h-[300px] md:h-[360px] overflow-hidden"
+          variants={bandVariant}
+          initial="hidden"
+          animate="visible"
+        >
+          <CatScene />
+        </motion.div>
+
+      </div>
+
+      {/* ── Scroll indicator ── */}
       <div
-        className="w-full mx-auto px-5 py-8 md:py-12"
-        style={{ maxWidth: "980px" }}
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-500 ${
+          scrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+        aria-hidden="true"
       >
-        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 lg:gap-16">
-
-          {/* ── Text column ── */}
-          <motion.div
-            className="flex-1 flex flex-col items-start"
-            variants={textContainer}
-            initial="hidden"
-            animate="visible"
-          >
-            {/* Eyebrow */}
-            <motion.p
-              variants={textItem}
-              className="text-caption font-normal text-text-secondary uppercase tracking-widest mb-5"
-            >
-              plant-based cat litter
-            </motion.p>
-
-            {/* Headline */}
-            <motion.h1
-              variants={textItem}
-              className="text-[2.25rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.08] tracking-[-0.04em] text-text-primary mb-5"
-            >
-              clean by nature.
-            </motion.h1>
-
-            {/* Subline */}
-            <motion.p
-              variants={textItem}
-              className="text-body-lg text-text-secondary mb-3 max-w-[380px] leading-relaxed"
-            >
-              made from tofu. soft on cats. easy on earth.
-            </motion.p>
-
-            {/* Tagline */}
-            <motion.p
-              variants={textItem}
-              className="text-xs text-text-secondary tracking-widest mb-8"
-              style={{ fontWeight: 300 }}
-            >
-              from bean to box.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              variants={textItem}
-              className="flex flex-row items-center gap-4"
-            >
-              <a
-                href="#shop"
-                className="inline-flex items-center justify-center h-10 px-6 rounded-full bg-terra text-white text-sm font-medium tracking-wide transition-colors duration-250 hover:bg-terra-hover focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terra"
-                aria-label="Try mochi — shop now"
-              >
-                try mochi
-              </a>
-              <a
-                href="#why-tofu"
-                className="text-sm font-medium text-brand-primary underline underline-offset-4 decoration-transparent hover:decoration-brand-primary transition-all duration-250 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
-              >
-                learn how it&apos;s made &rarr;
-              </a>
-            </motion.div>
-          </motion.div>
-
-          {/* ── Cat animation column ── */}
-          <motion.div
-            className="flex-1 rounded-2xl overflow-hidden bg-cream flex items-center justify-center h-56 sm:h-64 md:h-[360px] lg:h-[400px]"
-            variants={sceneVariant}
-            initial="hidden"
-            animate="visible"
-          >
-            <CatScene />
-          </motion.div>
-
-        </div>
+        <ChevronDown
+          size={20}
+          strokeWidth={1.5}
+          className="text-text-secondary animate-bounce-slow"
+        />
       </div>
     </section>
   );
