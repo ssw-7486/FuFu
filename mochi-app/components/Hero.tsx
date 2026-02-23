@@ -50,7 +50,7 @@ function CatScene() {
       >
         {/* ── Sitting cat (left) ── */}
         <g>
-          {/* Tail — animated via CSS */}
+          {/* Tail — slow lazy swish */}
           <motion.path
             d="M148 310 C120 320 100 340 115 358 C128 372 150 362 152 345"
             stroke="#2D6A4F"
@@ -60,11 +60,12 @@ function CatScene() {
             animate={{
               d: [
                 "M148 310 C120 320 100 340 115 358 C128 372 150 362 152 345",
-                "M148 310 C126 318 112 335 120 356 C130 375 154 368 155 350",
+                "M148 310 C115 315 90 332 100 354 C112 376 148 370 152 350",
+                "M148 310 C128 316 116 333 122 355 C132 376 156 366 155 348",
                 "M148 310 C120 320 100 340 115 358 C128 372 150 362 152 345",
               ],
             }}
-            transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
           />
 
           {/* Body */}
@@ -74,24 +75,12 @@ function CatScene() {
           <ellipse cx="170" cy="230" rx="34" ry="30" fill="#2D6A4F" />
 
           {/* Left ear */}
-          <motion.polygon
-            points="148,215 140,190 162,208"
-            fill="#2D6A4F"
-            animate={{ rotate: [0, -6, 0, 4, 0] }}
-            style={{ originX: "155px", originY: "210px" }}
-            transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
-          />
+          <polygon points="148,215 140,190 162,208" fill="#2D6A4F" />
           {/* Left ear inner */}
           <polygon points="150,212 144,194 160,208" fill="#F5F5F7" opacity="0.6" />
 
           {/* Right ear */}
-          <motion.polygon
-            points="192,215 200,190 178,208"
-            fill="#2D6A4F"
-            animate={{ rotate: [0, 5, 0, -4, 0] }}
-            style={{ originX: "185px", originY: "210px" }}
-            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-          />
+          <polygon points="192,215 200,190 178,208" fill="#2D6A4F" />
           {/* Right ear inner */}
           <polygon points="190,212 196,194 180,208" fill="#F5F5F7" opacity="0.6" />
 
@@ -152,7 +141,7 @@ function CatScene() {
           animate={{ y: [0, -5, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
         >
-          {/* Curled tail */}
+          {/* Curled tail — wider sweep, offset timing from left cat */}
           <motion.path
             d="M310 330 C340 310 360 325 350 345 C342 360 322 354 320 340"
             stroke="#2D6A4F"
@@ -162,11 +151,12 @@ function CatScene() {
             animate={{
               d: [
                 "M310 330 C340 310 360 325 350 345 C342 360 322 354 320 340",
-                "M310 330 C342 308 365 322 354 344 C346 362 322 355 320 340",
+                "M310 330 C346 306 372 318 360 342 C350 364 322 358 320 342",
+                "M310 330 C336 312 356 328 348 348 C340 364 320 356 318 340",
                 "M310 330 C340 310 360 325 350 345 C342 360 322 354 320 340",
               ],
             }}
-            transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
           />
 
           {/* Body */}
@@ -176,21 +166,9 @@ function CatScene() {
           <ellipse cx="295" cy="255" rx="28" ry="26" fill="#2D6A4F" />
 
           {/* Ears */}
-          <motion.polygon
-            points="278,243 270,220 292,238"
-            fill="#2D6A4F"
-            animate={{ rotate: [0, -5, 0, 3, 0] }}
-            style={{ originX: "281px", originY: "238px" }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-          />
+          <polygon points="278,243 270,220 292,238" fill="#2D6A4F" />
           <polygon points="280,240 274,222 290,236" fill="#F5F5F7" opacity="0.55" />
-          <motion.polygon
-            points="312,243 320,220 298,238"
-            fill="#2D6A4F"
-            animate={{ rotate: [0, 4, 0, -3, 0] }}
-            style={{ originX: "309px", originY: "238px" }}
-            transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: 1.0 }}
-          />
+          <polygon points="312,243 320,220 298,238" fill="#2D6A4F" />
           <polygon points="310,240 316,222 300,236" fill="#F5F5F7" opacity="0.55" />
 
           {/* Eyes — squinting/happy */}
@@ -269,14 +247,14 @@ function CatScene() {
 export default function Hero() {
   return (
     <section
-      className="min-h-screen flex items-center pt-nav"
+      className="flex items-center pt-nav min-h-[80vh] md:min-h-[75vh]"
       aria-label="Hero"
     >
       <div
-        className="w-full mx-auto px-5 py-20 md:py-0"
+        className="w-full mx-auto px-5 py-12 md:py-16"
         style={{ maxWidth: "980px" }}
       >
-        <div className="flex flex-col md:flex-row md:items-center gap-12 md:gap-8 lg:gap-16">
+        <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-8 lg:gap-16">
 
           {/* ── Text column ── */}
           <motion.div
@@ -296,7 +274,7 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1
               variants={textItem}
-              className="text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-bold leading-[1.08] tracking-[-0.04em] text-text-primary mb-5"
+              className="text-[2.25rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.08] tracking-[-0.04em] text-text-primary mb-5"
             >
               clean by nature.
             </motion.h1>
@@ -332,7 +310,7 @@ export default function Hero() {
 
           {/* ── Cat animation column ── */}
           <motion.div
-            className="flex-1 h-72 md:h-[420px] lg:h-[480px]"
+            className="flex-1 h-56 sm:h-64 md:h-[380px] lg:h-[420px]"
             variants={sceneVariant}
             initial="hidden"
             animate="visible"
